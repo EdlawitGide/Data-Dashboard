@@ -31,10 +31,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='Data DashBoard complete.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='[Data DashBoard complete.gif](https://github.com/EdlawitGide/Data-Dashboard/blob/712ce39bb3521b91b2cdc78fe42d014863e51abc/Data%20DashBoard%20complete.gif)' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with licecap  
+GIF created with Licecap  
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
