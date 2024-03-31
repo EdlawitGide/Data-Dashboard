@@ -1,43 +1,71 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import "./Dashboard.css"; // Import CSS file for component styling
 
 const Dashboard = () => {
-  const [weatherData, setWeatherData] = useState(null);
-  const [error, setError] = useState(null);
-  const apiKey = "4377b4cae90448b6ab54fbde5210929a"; // Replace 'YOUR_API_KEY' with your actual API key from Weatherbit
+  const [articles, setArticles] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredArticles, setFilteredArticles] = useState([]);
 
   useEffect(() => {
-    const fetchWeatherData = async () => {
+    const fetchData = async () => {
+      const apiKey = "c3980dcb9b764348b83eea0c3d8e82db";
+      const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
       try {
-        const response = await axios.get(
-          "https://api.weatherbit.io/v2.0/current?key=$'{apiKey}`"
-        );
-        setWeatherData(response.data);
+        const response = await fetch(apiUrl);
+        const result = await response.json();
+        setArticles(result.articles);
+        setFilteredArticles(result.articles); // Initialize filtered articles with all articles
       } catch (error) {
-        setError("Error fetching weather data");
+        console.error("Error fetching data:", error);
       }
     };
 
-    fetchWeatherData();
-  }, [apiKey]);
+    fetchData();
+  }, []);
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  const handleSearch = (e) => {
+    const searchTerm = e.target.value;
+    setSearchTerm(searchTerm);
+    const filtered = articles.filter((article) =>
+      article.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredArticles(filtered);
+  };
+
+  const handleFilter = (source) => {
+    const filtered = articles.filter(
+      (article) => article.source.name === source
+    );
+    setFilteredArticles(filtered);
+  };
 
   return (
-    <div className="dashboard">
-      <h2>Weather Information</h2>
-      {weatherData ? (
-        <div>
-          <p>City: {weatherData.data[0].city_name}</p>
-          <p>Temperature: {weatherData.data[0].temp} °C</p>
-          <p>Weather Description: {weatherData.data[0].weather.description}</p>
-          {/* Add more weather data fields as needed */}
+    <div className="dashboard-container">
+      <aside className="sidebar">
+        <h2>Filters</h2>
+        <input
+          type="text"
+          placeholder="Search news..."
+          value={searchTerm}
+          onChange={handleSearch}
+          className="search-input"
+        />
+        <div className="filter-buttons">
+          <button onClick={() => handleFilter("CNN")}>CNN</button>
+          <button onClick={() => handleFilter("BBC News")}>BBC News</button>
         </div>
-      ) : (
-        <p>Loading weather data...</p>
-      )}
+      </aside>
+      <main className="main-content">
+        {filteredArticles.map((article, index) => (
+          <div key={index} className="news-card">
+            <h3>{article.title}</h3>
+            <p>{article.description}</p>
+            <a href={article.url} target="_blank" rel="noopener noreferrer">
+              Read more
+            </a>
+          </div>
+        ))}
+      </main>
     </div>
   );
 };

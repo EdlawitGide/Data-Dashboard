@@ -1,17 +1,21 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import Dashboard from "./Dashboard";
-import "./App.css"; // Import your CSS file for styling
+import "./App.css";
 
 const App = () => {
   return (
-    <div className="app">
-      <h1>Data Dashboard</h1>
-      <Dashboard />
+    <div className="App">
+      <header>
+        <h1 className="dashboard">Top news</h1>
+      </header>
+      <main>
+        <Dashboard />
+      </main>
+      <footer>
+        <p>Powered by NewsAPI</p>
+      </footer>
     </div>
   );
 };
 
 export default App;
-
-ReactDOM.render(<App />, document.getElementById("root"));
