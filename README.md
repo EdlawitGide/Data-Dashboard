@@ -27,10 +27,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='[http://i.imgur.com/link/to/your/gif/file.gif](https://github.com/EdlawitGide/Data-Dashboard/blob/6e71fa1e3ee6d075aa18b1623bc3d351404ec994/Data%20DashBoard%20PART%202.gif)' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
+GIF created with LICEcap  
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
