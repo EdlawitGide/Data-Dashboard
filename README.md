@@ -1,7 +1,7 @@
 DataVista (Data Dashboard) 
 
 This app is a dynamic data dashboard that fetches data using an API and provides users with interactive features such as search, multiple filters, and detailed views. It also includes visualizations and summary statistics, offering a comprehensive and engaging way to explore data.
-https://media.giphy.com/media/noyBeNjH4nbtXV5ZLA/giphy.gif?cid=790b76113cjm47msbqasz5bzh1x7e3jnr9ki3hk2ofq86r51&ep=v1_gifs_search&rid=giphy.gif&ct=g
+![Uploading image.png…]()
 
 ### **Features 📝**
 
